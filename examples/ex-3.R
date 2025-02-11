@@ -1,3 +1,6 @@
+source("examples/fn.R")
+
+
 # Codebooks
 cb1 <- data.frame(
   val = c(1:5, 9),
@@ -49,15 +52,5 @@ ls <- list()
 for (i in 1:length(data)) {
   ls[[i]] <- summarize_results(data[[i]], cb[[i]])
 }
-
-
-
-ls[[1]]
-
-
-
-
-
-
 
 

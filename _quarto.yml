@@ -1,5 +1,6 @@
 project:
   title: "presentation-loops"
-
+  type: website
+  output-dir: docs
 
 
