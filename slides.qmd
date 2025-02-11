@@ -1,0 +1,210 @@
+---
+title: "Loops in R"
+author: "Eliot Monaco"
+date: "2/11/2025"
+format:
+  revealjs:
+    theme: dark
+    highlight-style: github
+    css: styles.css
+    width: 1300
+    slide-number: true
+    incremental: false
+    code-overflow: "wrap"
+    preview-links: true
+    scrollable: true
+    chalkboard:
+      buttons: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  R.options = list(width = 120)
+)
+```
+
+## Why use loops?
+
+Iteration: repeat the same code
+
+- many times
+- very fast
+
+## Loop input/output
+
+Loops often operate on and/or create
+
+- dataframe rows or columns
+- vector/list elements
+
+## Loop input/output
+
+But they don't have to
+
+```{r}
+# scalar input
+
+x <- 0
+
+for (i in 1:10) {
+  x <- x + 1
+}
+
+x
+```
+
+```{r}
+# vector input
+
+y <- 0:9
+
+for (i in 1:length(y)) {
+  y[i] <- 1 + y[i]
+}
+
+y
+```
+
+## Other ways to iterate in R
+
+- vectorized functions (fns that have vector input and output)
+
+```{r}
+paste(1:10, "Mississippi")
+```
+
+## Other ways to iterate in R
+
+- `apply()` & friends
+
+```{r}
+df <- data.frame(n = 1:10)
+
+df$new1 <- apply(df, 1, function(x) paste(x, "Mississippi"))
+
+df
+```
+
+## Other ways to iterate in R
+
+- `dplyr::mutate()`
+
+```{r}
+df <- df |>
+  dplyr::mutate(new2 = paste(n, "Mississippi"))
+
+df
+```
+
+## Other ways to iterate in R
+
+- `purrr::map()` & friends (great for lists)
+
+```{r}
+
+```
+
+## Other ways to iterate in R
+
+- more?
+
+## Why use loops (instead of another way)?
+
+:::{.incremental}
+- Loops are transparent. They create objects in your global env, so WYSIWYG.
+    + useful during building and testing
+- If iteration must be cumulative (i.e., dependent on prior iteration)
+::::
+
+## Loop anatomy
+
+```{r eval=FALSE}
+#    counter    sequence
+#       |          |
+#       v          v
+for (variable in vector) {
+
+  # body
+  
+}
+```
+
+The **counter** is a scalar that increases by 1 after each iteration
+
+The **sequence** is a vector that determines the number of iterations
+
+The **body** is the code that executes on each iteration
+
+## Loop anatomy
+
+```{r eval=FALSE}
+#    counter    sequence
+#       |          |
+#       v          v
+for (   i     in  1:10 ) {
+
+  # body
+  
+}
+```
+
+The **counter** is a scalar that increases by 1 after each iteration
+
+The **sequence** is a vector that determines the number of iterations
+
+The **body** is the code that executes on each iteration
+
+## Loop anatomy
+
+```{r eval=FALSE}
+#    counter    sequence
+#       |          |
+#       v          v
+for (   i     in  1:length(y)) {
+
+  # body
+  
+}
+```
+
+The **counter** is a scalar that increases by 1 after each iteration
+
+The **sequence** is a vector that determines the number of iterations
+
+The **body** is the code that executes on each iteration
+
+## Helpful sequence fns
+
+- `length()`
+- `nrow()`
+- `ncol()`
+- `seq_along()` (outputs a vector)
+
+## Loop anatomy
+
+The counter and the sequence object often appear in the body of the loop
+
+```{r}
+for (i in seq_along(letters)) {
+  print(rep(letters[i], 3))
+}
+```
+
+## Building and testing
+
+1. Write code that works once
+
+2. Rewrite the code as a loop
+
+3. Profit
+
+## An example
+
+Summarize a data set of survey results. Each column contains responses to a question. Count the occurrences of unique values in each column.
+
+- table of possible responses is in a separate codebook
+- account for unrepresented responses (where count is 0)
+
+
+
