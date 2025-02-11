@@ -1,0 +1,85 @@
+:root {
+	/* --r-main-font-size: 36px; */
+	/* --r-heading3-size: 1.2em; */
+	--title-slide-background-color: #4d194d;
+}
+
+.reveal .progress {
+  color: #c13ec1;
+}
+
+.slide-background.level1 {
+	background-color: var(--title-slide-background-color);
+}
+
+section.slide > h2:first-child {
+	margin-bottom: 40px;
+}
+
+ul,
+div.cell,
+div.fragment,
+div.fragment > div.cell,
+div.cell-output,
+details.code-fold {
+	margin-bottom: .5em !important;
+}
+
+p + div.cell,
+p + div.fragment,
+.cell-output-display {
+	margin-top: .5em !important;
+}
+
+strong, em {
+	color: #79a6d2;
+}
+
+.txt-green {
+	color: lightgreen;
+}
+
+.txt-blue {
+	color: lightskyblue;
+}
+
+.txt-red {
+	color: lightcoral;
+}
+
+.txt-yellow {
+	color: palegoldenrod;
+}
+
+.txt-bold {
+	font-weight: bold;
+}
+
+/* CODE-FOLD SECTION BUTTON */
+
+details.code-fold > summary {
+	font-size: .5em;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #333;
+	border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #555;
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	/* background: #555; */
+}

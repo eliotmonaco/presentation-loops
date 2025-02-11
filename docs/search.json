@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "slides.html#why-use-loops",
+    "href": "slides.html#why-use-loops",
+    "title": "Loops in R",
+    "section": "Why use loops?",
+    "text": "Why use loops?\nIteration: repeat the same code\n\nmany times\nvery fast"
+  },
+  {
+    "objectID": "slides.html#loop-inputoutput",
+    "href": "slides.html#loop-inputoutput",
+    "title": "Loops in R",
+    "section": "Loop input/output",
+    "text": "Loop input/output\nLoops often operate on and/or create\n\ndataframe rows or columns\nvector/list elements"
+  },
+  {
+    "objectID": "slides.html#loop-inputoutput-1",
+    "href": "slides.html#loop-inputoutput-1",
+    "title": "Loops in R",
+    "section": "Loop input/output",
+    "text": "Loop input/output\nBut they don’t have to\n\n# scalar input\n\nx &lt;- 0\n\nfor (i in 1:10) {\n  x &lt;- x + 1\n}\n\nx\n\n[1] 10\n\n\n\n# vector input\n\ny &lt;- 0:9\n\nfor (i in 1:length(y)) {\n  y[i] &lt;- 1 + y[i]\n}\n\ny\n\n [1]  1  2  3  4  5  6  7  8  9 10"
+  },
+  {
+    "objectID": "slides.html#other-ways-to-iterate-in-r",
+    "href": "slides.html#other-ways-to-iterate-in-r",
+    "title": "Loops in R",
+    "section": "Other ways to iterate in R",
+    "text": "Other ways to iterate in R\n\nvectorized functions (fns that have vector input and output)\n\n\npaste(1:10, \"Mississippi\")\n\n [1] \"1 Mississippi\"  \"2 Mississippi\"  \"3 Mississippi\"  \"4 Mississippi\"  \"5 Mississippi\"  \"6 Mississippi\" \n [7] \"7 Mississippi\"  \"8 Mississippi\"  \"9 Mississippi\"  \"10 Mississippi\""
+  },
+  {
+    "objectID": "slides.html#other-ways-to-iterate-in-r-1",
+    "href": "slides.html#other-ways-to-iterate-in-r-1",
+    "title": "Loops in R",
+    "section": "Other ways to iterate in R",
+    "text": "Other ways to iterate in R\n\napply() & friends\n\n\ndf &lt;- data.frame(n = 1:10)\n\ndf$new1 &lt;- apply(df, 1, function(x) paste(x, \"Mississippi\"))\n\ndf\n\n    n           new1\n1   1  1 Mississippi\n2   2  2 Mississippi\n3   3  3 Mississippi\n4   4  4 Mississippi\n5   5  5 Mississippi\n6   6  6 Mississippi\n7   7  7 Mississippi\n8   8  8 Mississippi\n9   9  9 Mississippi\n10 10 10 Mississippi"
+  },
+  {
+    "objectID": "slides.html#other-ways-to-iterate-in-r-2",
+    "href": "slides.html#other-ways-to-iterate-in-r-2",
+    "title": "Loops in R",
+    "section": "Other ways to iterate in R",
+    "text": "Other ways to iterate in R\n\ndplyr::mutate()\n\n\ndf &lt;- df |&gt;\n  dplyr::mutate(new2 = paste(n, \"Mississippi\"))\n\ndf\n\n    n           new1           new2\n1   1  1 Mississippi  1 Mississippi\n2   2  2 Mississippi  2 Mississippi\n3   3  3 Mississippi  3 Mississippi\n4   4  4 Mississippi  4 Mississippi\n5   5  5 Mississippi  5 Mississippi\n6   6  6 Mississippi  6 Mississippi\n7   7  7 Mississippi  7 Mississippi\n8   8  8 Mississippi  8 Mississippi\n9   9  9 Mississippi  9 Mississippi\n10 10 10 Mississippi 10 Mississippi"
+  },
+  {
+    "objectID": "slides.html#other-ways-to-iterate-in-r-3",
+    "href": "slides.html#other-ways-to-iterate-in-r-3",
+    "title": "Loops in R",
+    "section": "Other ways to iterate in R",
+    "text": "Other ways to iterate in R\n\npurrr::map() & friends (great for lists)"
+  },
+  {
+    "objectID": "slides.html#other-ways-to-iterate-in-r-4",
+    "href": "slides.html#other-ways-to-iterate-in-r-4",
+    "title": "Loops in R",
+    "section": "Other ways to iterate in R",
+    "text": "Other ways to iterate in R\n\nmore?"
+  },
+  {
+    "objectID": "slides.html#why-use-loops-instead-of-another-way",
+    "href": "slides.html#why-use-loops-instead-of-another-way",
+    "title": "Loops in R",
+    "section": "Why use loops (instead of another way)?",
+    "text": "Why use loops (instead of another way)?\n\n\nLoops are transparent. They create objects in your global env, so WYSIWYG.\n\nuseful during building and testing\n\nIf iteration must be cumulative (i.e., dependent on prior iteration)"
+  },
+  {
+    "objectID": "slides.html#loop-anatomy",
+    "href": "slides.html#loop-anatomy",
+    "title": "Loops in R",
+    "section": "Loop anatomy",
+    "text": "Loop anatomy\n\n#    counter    sequence\n#       |          |\n#       v          v\nfor (variable in vector) {\n\n  # body\n  \n}\n\nThe counter is a scalar that increases by 1 after each iteration\nThe sequence is a vector that determines the number of iterations\nThe body is the code that executes on each iteration"
+  },
+  {
+    "objectID": "slides.html#loop-anatomy-1",
+    "href": "slides.html#loop-anatomy-1",
+    "title": "Loops in R",
+    "section": "Loop anatomy",
+    "text": "Loop anatomy\n\n#    counter    sequence\n#       |          |\n#       v          v\nfor (   i     in  1:10 ) {\n\n  # body\n  \n}\n\nThe counter is a scalar that increases by 1 after each iteration\nThe sequence is a vector that determines the number of iterations\nThe body is the code that executes on each iteration"
+  },
+  {
+    "objectID": "slides.html#loop-anatomy-2",
+    "href": "slides.html#loop-anatomy-2",
+    "title": "Loops in R",
+    "section": "Loop anatomy",
+    "text": "Loop anatomy\n\n#    counter    sequence\n#       |          |\n#       v          v\nfor (   i     in  1:length(y)) {\n\n  # body\n  \n}\n\nThe counter is a scalar that increases by 1 after each iteration\nThe sequence is a vector that determines the number of iterations\nThe body is the code that executes on each iteration"
+  },
+  {
+    "objectID": "slides.html#helpful-sequence-fns",
+    "href": "slides.html#helpful-sequence-fns",
+    "title": "Loops in R",
+    "section": "Helpful sequence fns",
+    "text": "Helpful sequence fns\n\nlength()\nnrow()\nncol()\nseq_along() (outputs a vector)"
+  },
+  {
+    "objectID": "slides.html#loop-anatomy-3",
+    "href": "slides.html#loop-anatomy-3",
+    "title": "Loops in R",
+    "section": "Loop anatomy",
+    "text": "Loop anatomy\nThe counter and the sequence object often appear in the body of the loop\n\nfor (i in seq_along(letters)) {\n  print(rep(letters[i], 3))\n}\n\n[1] \"a\" \"a\" \"a\"\n[1] \"b\" \"b\" \"b\"\n[1] \"c\" \"c\" \"c\"\n[1] \"d\" \"d\" \"d\"\n[1] \"e\" \"e\" \"e\"\n[1] \"f\" \"f\" \"f\"\n[1] \"g\" \"g\" \"g\"\n[1] \"h\" \"h\" \"h\"\n[1] \"i\" \"i\" \"i\"\n[1] \"j\" \"j\" \"j\"\n[1] \"k\" \"k\" \"k\"\n[1] \"l\" \"l\" \"l\"\n[1] \"m\" \"m\" \"m\"\n[1] \"n\" \"n\" \"n\"\n[1] \"o\" \"o\" \"o\"\n[1] \"p\" \"p\" \"p\"\n[1] \"q\" \"q\" \"q\"\n[1] \"r\" \"r\" \"r\"\n[1] \"s\" \"s\" \"s\"\n[1] \"t\" \"t\" \"t\"\n[1] \"u\" \"u\" \"u\"\n[1] \"v\" \"v\" \"v\"\n[1] \"w\" \"w\" \"w\"\n[1] \"x\" \"x\" \"x\"\n[1] \"y\" \"y\" \"y\"\n[1] \"z\" \"z\" \"z\""
+  },
+  {
+    "objectID": "slides.html#building-and-testing",
+    "href": "slides.html#building-and-testing",
+    "title": "Loops in R",
+    "section": "Building and testing",
+    "text": "Building and testing\n\nWrite code that works once\nRewrite the code as a loop\nProfit"
+  },
+  {
+    "objectID": "slides.html#an-example",
+    "href": "slides.html#an-example",
+    "title": "Loops in R",
+    "section": "An example",
+    "text": "An example\nSummarize a data set of survey results. Each column contains responses to a question. Count the occurrences of unique values in each column.\n\ntable of possible responses is in a separate codebook\naccount for unrepresented responses (where count is 0)"
+  }
+]
