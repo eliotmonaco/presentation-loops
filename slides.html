@@ -544,8 +544,8 @@ Eliot Monaco
 </ul>
 </div>
 </section>
-<section id="loop-anatomy" class="slide level2">
-<h2>Loop anatomy</h2>
+<section id="for-loop-anatomy" class="slide level2">
+<h2>For loop anatomy</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co">#    counter    sequence</span></span>
 <span id="cb11-2"><a></a><span class="co">#       |          |</span></span>
@@ -560,8 +560,8 @@ Eliot Monaco
 <p>The <strong>sequence</strong> is a vector that determines the number of iterations</p>
 <p>The <strong>body</strong> is the code that executes on each iteration</p>
 </section>
-<section id="loop-anatomy-1" class="slide level2">
-<h2>Loop anatomy</h2>
+<section id="for-loop-anatomy-1" class="slide level2">
+<h2>For loop anatomy</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co">#    counter    sequence</span></span>
 <span id="cb12-2"><a></a><span class="co">#       |          |</span></span>
@@ -576,8 +576,8 @@ Eliot Monaco
 <p>The <strong>sequence</strong> is a vector that determines the number of iterations</p>
 <p>The <strong>body</strong> is the code that executes on each iteration</p>
 </section>
-<section id="loop-anatomy-2" class="slide level2">
-<h2>Loop anatomy</h2>
+<section id="for-loop-anatomy-2" class="slide level2">
+<h2>For loop anatomy</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co">#    counter    sequence</span></span>
 <span id="cb13-2"><a></a><span class="co">#       |          |</span></span>
@@ -601,8 +601,8 @@ Eliot Monaco
 <li><code>seq_along()</code> (outputs a vector)</li>
 </ul>
 </section>
-<section id="loop-anatomy-3" class="slide level2">
-<h2>Loop anatomy</h2>
+<section id="for-loop-anatomy-3" class="slide level2">
+<h2>For loop anatomy</h2>
 <p>The counter and the sequence object often appear in the body of the loop</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(letters)) {</span>
@@ -638,8 +638,41 @@ Eliot Monaco
 </div>
 </div>
 </section>
-<section id="building-and-testing" class="slide level2 scrollable">
-<h2>Building and testing</h2>
+<section id="while-loops" class="slide level2">
+<h2>While loops</h2>
+<p>While loops run as long as the condition (a logical statement) is true</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="cf">while</span> (condition) {</span>
+<span id="cb16-2"><a></a>  </span>
+<span id="cb16-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="while-loops-1" class="slide level2">
+<h2>While loops</h2>
+<p>When <code>x &lt; 10</code> evaluates as <code>FALSE</code> the loop will stop</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb17-2"><a></a></span>
+<span id="cb17-3"><a></a><span class="cf">while</span> (x <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
+<span id="cb17-4"><a></a>  x <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb17-5"><a></a>  <span class="fu">print</span>(x)</span>
+<span id="cb17-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+[1] 6
+[1] 7
+[1] 8
+[1] 9
+[1] 10</code></pre>
+</div>
+</div>
+</section>
+<section id="workflow-for-building-and-testing-a-loop" class="slide level2 scrollable">
+<h2>Workflow for building and testing a loop</h2>
 <ol type="1">
 <li><p>Write code that works once</p></li>
 <li><p>Rewrite the code as a loop</p></li>
@@ -652,6 +685,14 @@ Eliot Monaco
 <ul>
 <li>table of possible responses is in a separate codebook</li>
 <li>account for unrepresented responses (where count is 0)</li>
+</ul>
+</section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
+<ul>
+<li>R for Epidemiology: <a href="https://www.r4epi.com/writing-for-loops">Writing For Loops</a></li>
+<li>R for Data Science (2e): <a href="https://r4ds.hadley.nz/iteration">Iteration</a></li>
+<li>W3Schools: <a href="https://www.w3schools.com/r/r_while_loop.asp">While loops</a> and <a href="https://www.w3schools.com/r/r_for_loop.asp">For loops</a></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
