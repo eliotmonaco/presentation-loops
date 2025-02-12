@@ -117,7 +117,7 @@ df
 - If iteration must be cumulative (i.e., dependent on prior iteration)
 ::::
 
-## Loop anatomy
+## For loop anatomy
 
 ```{r eval=FALSE}
 #    counter    sequence
@@ -136,7 +136,7 @@ The **sequence** is a vector that determines the number of iterations
 
 The **body** is the code that executes on each iteration
 
-## Loop anatomy
+## For loop anatomy
 
 ```{r eval=FALSE}
 #    counter    sequence
@@ -155,7 +155,7 @@ The **sequence** is a vector that determines the number of iterations
 
 The **body** is the code that executes on each iteration
 
-## Loop anatomy
+## For loop anatomy
 
 ```{r eval=FALSE}
 #    counter    sequence
@@ -181,7 +181,7 @@ The **body** is the code that executes on each iteration
 - `ncol()`
 - `seq_along()` (outputs a vector)
 
-## Loop anatomy
+## For loop anatomy
 
 The counter and the sequence object often appear in the body of the loop
 
@@ -191,7 +191,30 @@ for (i in seq_along(letters)) {
 }
 ```
 
-## Building and testing
+## While loops
+
+While loops run as long as the condition (a logical statement) is true
+
+```{r eval=FALSE}
+while (condition) {
+  
+}
+```
+
+## While loops
+
+When `x < 10` evaluates as `FALSE` the loop will stop
+
+```{r}
+x <- 0
+
+while (x < 10) {
+  x <- x + 1
+  print(x)
+}
+```
+
+## Workflow for building and testing a loop
 
 1. Write code that works once
 
@@ -206,5 +229,9 @@ Summarize a data set of survey results. Each column contains responses to a ques
 - table of possible responses is in a separate codebook
 - account for unrepresented responses (where count is 0)
 
+## Resources
 
+- R for Epidemiology: [Writing For Loops](https://www.r4epi.com/writing-for-loops)
+- R for Data Science (2e): [Iteration](https://r4ds.hadley.nz/iteration)
+- W3Schools: [While loops](https://www.w3schools.com/r/r_while_loop.asp) and [For loops](https://www.w3schools.com/r/r_for_loop.asp)
 

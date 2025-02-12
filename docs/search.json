@@ -63,25 +63,25 @@
     "text": "Why use loops (instead of another way)?\n\n\nLoops are transparent. They create objects in your global env, so WYSIWYG.\n\nuseful during building and testing\n\nIf iteration must be cumulative (i.e., dependent on prior iteration)"
   },
   {
-    "objectID": "slides.html#loop-anatomy",
-    "href": "slides.html#loop-anatomy",
+    "objectID": "slides.html#for-loop-anatomy",
+    "href": "slides.html#for-loop-anatomy",
     "title": "Loops in R",
-    "section": "Loop anatomy",
-    "text": "Loop anatomy\n\n#    counter    sequence\n#       |          |\n#       v          v\nfor (variable in vector) {\n\n  # body\n  \n}\n\nThe counter is a scalar that increases by 1 after each iteration\nThe sequence is a vector that determines the number of iterations\nThe body is the code that executes on each iteration"
+    "section": "For loop anatomy",
+    "text": "For loop anatomy\n\n#    counter    sequence\n#       |          |\n#       v          v\nfor (variable in vector) {\n\n  # body\n  \n}\n\nThe counter is a scalar that increases by 1 after each iteration\nThe sequence is a vector that determines the number of iterations\nThe body is the code that executes on each iteration"
   },
   {
-    "objectID": "slides.html#loop-anatomy-1",
-    "href": "slides.html#loop-anatomy-1",
+    "objectID": "slides.html#for-loop-anatomy-1",
+    "href": "slides.html#for-loop-anatomy-1",
     "title": "Loops in R",
-    "section": "Loop anatomy",
-    "text": "Loop anatomy\n\n#    counter    sequence\n#       |          |\n#       v          v\nfor (   i     in  1:10 ) {\n\n  # body\n  \n}\n\nThe counter is a scalar that increases by 1 after each iteration\nThe sequence is a vector that determines the number of iterations\nThe body is the code that executes on each iteration"
+    "section": "For loop anatomy",
+    "text": "For loop anatomy\n\n#    counter    sequence\n#       |          |\n#       v          v\nfor (   i     in  1:10 ) {\n\n  # body\n  \n}\n\nThe counter is a scalar that increases by 1 after each iteration\nThe sequence is a vector that determines the number of iterations\nThe body is the code that executes on each iteration"
   },
   {
-    "objectID": "slides.html#loop-anatomy-2",
-    "href": "slides.html#loop-anatomy-2",
+    "objectID": "slides.html#for-loop-anatomy-2",
+    "href": "slides.html#for-loop-anatomy-2",
     "title": "Loops in R",
-    "section": "Loop anatomy",
-    "text": "Loop anatomy\n\n#    counter    sequence\n#       |          |\n#       v          v\nfor (   i     in  1:length(y)) {\n\n  # body\n  \n}\n\nThe counter is a scalar that increases by 1 after each iteration\nThe sequence is a vector that determines the number of iterations\nThe body is the code that executes on each iteration"
+    "section": "For loop anatomy",
+    "text": "For loop anatomy\n\n#    counter    sequence\n#       |          |\n#       v          v\nfor (   i     in  1:length(y)) {\n\n  # body\n  \n}\n\nThe counter is a scalar that increases by 1 after each iteration\nThe sequence is a vector that determines the number of iterations\nThe body is the code that executes on each iteration"
   },
   {
     "objectID": "slides.html#helpful-sequence-fns",
@@ -91,18 +91,32 @@
     "text": "Helpful sequence fns\n\nlength()\nnrow()\nncol()\nseq_along() (outputs a vector)"
   },
   {
-    "objectID": "slides.html#loop-anatomy-3",
-    "href": "slides.html#loop-anatomy-3",
+    "objectID": "slides.html#for-loop-anatomy-3",
+    "href": "slides.html#for-loop-anatomy-3",
     "title": "Loops in R",
-    "section": "Loop anatomy",
-    "text": "Loop anatomy\nThe counter and the sequence object often appear in the body of the loop\n\nfor (i in seq_along(letters)) {\n  print(rep(letters[i], 3))\n}\n\n[1] \"a\" \"a\" \"a\"\n[1] \"b\" \"b\" \"b\"\n[1] \"c\" \"c\" \"c\"\n[1] \"d\" \"d\" \"d\"\n[1] \"e\" \"e\" \"e\"\n[1] \"f\" \"f\" \"f\"\n[1] \"g\" \"g\" \"g\"\n[1] \"h\" \"h\" \"h\"\n[1] \"i\" \"i\" \"i\"\n[1] \"j\" \"j\" \"j\"\n[1] \"k\" \"k\" \"k\"\n[1] \"l\" \"l\" \"l\"\n[1] \"m\" \"m\" \"m\"\n[1] \"n\" \"n\" \"n\"\n[1] \"o\" \"o\" \"o\"\n[1] \"p\" \"p\" \"p\"\n[1] \"q\" \"q\" \"q\"\n[1] \"r\" \"r\" \"r\"\n[1] \"s\" \"s\" \"s\"\n[1] \"t\" \"t\" \"t\"\n[1] \"u\" \"u\" \"u\"\n[1] \"v\" \"v\" \"v\"\n[1] \"w\" \"w\" \"w\"\n[1] \"x\" \"x\" \"x\"\n[1] \"y\" \"y\" \"y\"\n[1] \"z\" \"z\" \"z\""
+    "section": "For loop anatomy",
+    "text": "For loop anatomy\nThe counter and the sequence object often appear in the body of the loop\n\nfor (i in seq_along(letters)) {\n  print(rep(letters[i], 3))\n}\n\n[1] \"a\" \"a\" \"a\"\n[1] \"b\" \"b\" \"b\"\n[1] \"c\" \"c\" \"c\"\n[1] \"d\" \"d\" \"d\"\n[1] \"e\" \"e\" \"e\"\n[1] \"f\" \"f\" \"f\"\n[1] \"g\" \"g\" \"g\"\n[1] \"h\" \"h\" \"h\"\n[1] \"i\" \"i\" \"i\"\n[1] \"j\" \"j\" \"j\"\n[1] \"k\" \"k\" \"k\"\n[1] \"l\" \"l\" \"l\"\n[1] \"m\" \"m\" \"m\"\n[1] \"n\" \"n\" \"n\"\n[1] \"o\" \"o\" \"o\"\n[1] \"p\" \"p\" \"p\"\n[1] \"q\" \"q\" \"q\"\n[1] \"r\" \"r\" \"r\"\n[1] \"s\" \"s\" \"s\"\n[1] \"t\" \"t\" \"t\"\n[1] \"u\" \"u\" \"u\"\n[1] \"v\" \"v\" \"v\"\n[1] \"w\" \"w\" \"w\"\n[1] \"x\" \"x\" \"x\"\n[1] \"y\" \"y\" \"y\"\n[1] \"z\" \"z\" \"z\""
   },
   {
-    "objectID": "slides.html#building-and-testing",
-    "href": "slides.html#building-and-testing",
+    "objectID": "slides.html#while-loops",
+    "href": "slides.html#while-loops",
     "title": "Loops in R",
-    "section": "Building and testing",
-    "text": "Building and testing\n\nWrite code that works once\nRewrite the code as a loop\nProfit"
+    "section": "While loops",
+    "text": "While loops\nWhile loops run as long as the condition (a logical statement) is true\n\nwhile (condition) {\n  \n}"
+  },
+  {
+    "objectID": "slides.html#while-loops-1",
+    "href": "slides.html#while-loops-1",
+    "title": "Loops in R",
+    "section": "While loops",
+    "text": "While loops\nWhen x &lt; 10 evaluates as FALSE the loop will stop\n\nx &lt;- 0\n\nwhile (x &lt; 10) {\n  x &lt;- x + 1\n  print(x)\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n[1] 5\n[1] 6\n[1] 7\n[1] 8\n[1] 9\n[1] 10"
+  },
+  {
+    "objectID": "slides.html#workflow-for-building-and-testing-a-loop",
+    "href": "slides.html#workflow-for-building-and-testing-a-loop",
+    "title": "Loops in R",
+    "section": "Workflow for building and testing a loop",
+    "text": "Workflow for building and testing a loop\n\nWrite code that works once\nRewrite the code as a loop\nProfit"
   },
   {
     "objectID": "slides.html#an-example",
@@ -110,5 +124,12 @@
     "title": "Loops in R",
     "section": "An example",
     "text": "An example\nSummarize a data set of survey results. Each column contains responses to a question. Count the occurrences of unique values in each column.\n\ntable of possible responses is in a separate codebook\naccount for unrepresented responses (where count is 0)"
+  },
+  {
+    "objectID": "slides.html#resources",
+    "href": "slides.html#resources",
+    "title": "Loops in R",
+    "section": "Resources",
+    "text": "Resources\n\nR for Epidemiology: Writing For Loops\nR for Data Science (2e): Iteration\nW3Schools: While loops and For loops"
   }
 ]
