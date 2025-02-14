@@ -123,7 +123,7 @@
     "href": "slides.html#an-example",
     "title": "Loops in R",
     "section": "An example",
-    "text": "An example\nSummarize a data set of survey results. Each column contains responses to a question. Count the occurrences of unique values in each column.\n\ntable of possible responses is in a separate codebook\naccount for unrepresented responses (where count is 0)"
+    "text": "An example\nSummarize a data set of survey results. Each column contains responses to a question. Count the occurrences of unique values in each column.\nOther requirements:\n\nUse a codebook to get the list of all possible responses for each question\nAccount for unrepresented responses (i.e., where the count is 0)\n\nThe scripts are in presentation-loops/example/."
   },
   {
     "objectID": "slides.html#resources",
