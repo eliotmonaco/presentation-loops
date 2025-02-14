@@ -682,7 +682,7 @@ Eliot Monaco
 <section id="an-example" class="slide level2">
 <h2>An example</h2>
 <p>Summarize a data set of survey results. Each column contains responses to a question. Count the occurrences of unique values in each column.</p>
-<p>Other requirements</p>
+<p>Other requirements:</p>
 <ul>
 <li>Use a codebook to get the list of all possible responses for each question</li>
 <li>Account for unrepresented responses (i.e., where the count is 0)</li>
@@ -1080,7 +1080,7 @@ Eliot Monaco
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
+          var filterRegex = new RegExp("https:\/\/eliotmonaco\.github\.io\/presentation-loops\/");
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
