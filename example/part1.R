@@ -1,3 +1,12 @@
+# Part 1: Write code to solve the problem once. No loop yet. In this step, we
+# will
+#  - create responses for a single survey question in a dataframe
+#  - create a codebook that has all possible responses to the survey question
+#  - write code to summarize those results (this is what will become a loop in
+#    part 2)
+
+
+
 library(dplyr)
 library(purrr)
 
@@ -11,7 +20,7 @@ cb <- data.frame(
 
 
 
-# Convert `val` to factor
+# Convert `cb$val` to factor
 cb$val <- factor(cb$val, levels = sort(cb$val))
 
 
@@ -21,7 +30,8 @@ df <- data.frame(q1 = sample(cb$val, 100, replace = TRUE))
 
 
 
-# Create data with unrepresented values
+# Adjust data so that a codebook value is unrepresented (the goal is to count
+# all possible values, even if some don't appear in the results)
 df <- data.frame(q1 = sample(cb$val[1:5], 100, replace = TRUE))
 
 

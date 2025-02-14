@@ -226,12 +226,15 @@ while (x < 10) {
 
 Summarize a data set of survey results. Each column contains responses to a question. Count the occurrences of unique values in each column.
 
-- table of possible responses is in a separate codebook
-- account for unrepresented responses (where count is 0)
+Other requirements:
+
+- Use a codebook to get the list of all possible responses for each question
+- Account for unrepresented responses (i.e., where the count is 0)
+
+The scripts are in `presentation-loops/example/`.
 
 ## Resources
 
 - R for Epidemiology: [Writing For Loops](https://www.r4epi.com/writing-for-loops)
 - R for Data Science (2e): [Iteration](https://r4ds.hadley.nz/iteration)
 - W3Schools: [While loops](https://www.w3schools.com/r/r_while_loop.asp) and [For loops](https://www.w3schools.com/r/r_for_loop.asp)
-

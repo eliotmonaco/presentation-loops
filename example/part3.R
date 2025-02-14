@@ -1,4 +1,13 @@
-source("examples/fn.R")
+# Part 3: This is a bonus step. The code from part 2 has been reworked into a
+# custom function called `summarize_results()` (in `example/fn.R`). The input is
+# a dataframe of raw results like in part 2, and the output is the summary
+# table. This function can now be used in a loop (below) to summarize questions
+# that require different codebooks.
+
+
+
+source("example/fn.R")
+
 
 
 # Codebooks
@@ -47,10 +56,18 @@ q3 <- data.frame(
 data <- list(q1, q2, q3)
 
 
+
 ls <- list()
 
 for (i in 1:length(data)) {
   ls[[i]] <- summarize_results(data[[i]], cb[[i]])
 }
+
+
+
+for (i in 1:length(ls)) {
+  print(ls[[i]])
+}
+
 
 

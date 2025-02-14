@@ -1,3 +1,13 @@
+# Part 2: Rewrite the code as a loop to produce the same outcome as in part 1,
+# but for multiple survey questions. In this step, we will
+#  - use the same codebook, but create a new dataframe of survey results with
+#    multiple questions
+#  - rework the code that summarized one question into a loop
+#  - use a purrr function to convert the loop output, which is a list, to a
+#    dataframe
+
+
+
 library(dplyr)
 library(purrr)
 
@@ -46,12 +56,12 @@ vars <- colnames(df)
 # The loop
 for (i in 1:length(vars)) {
   ls[[i]] <- df |>
-    rename(val = vars[i]) |>
-    count(
-      val,
-      name = paste(vars[i], "(n)"),
-      .drop = F)
-}
+    rename(val = vars[i]) |>        # <-- This line was not in part 1. It's here
+    count(                          # because it will help to have the question
+      val,                          # number in the count variable name.
+      name = paste(vars[i], "(n)"), # <-- The `name` argument is new too. It's
+      .drop = F)                    # what's needed to rename the count
+}                                   # variable.
 
 
 
